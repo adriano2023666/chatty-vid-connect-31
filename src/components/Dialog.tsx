@@ -1,12 +1,12 @@
-import { Dialog, DialogContent, DialogDescription } from "@/components/ui/dialog";
+import { Dialog, DialogContent, DialogDescription, DialogTitle } from "@/components/ui/dialog";
 
-export function MyDialog({ children, ...props }) {
+export function MyDialog({ children, title, description, ...props }) {
   return (
     <Dialog {...props}>
-      <DialogContent aria-describedby="dialog-description">
-        <DialogDescription id="dialog-description">
-          {/* Add your dialog description here */}
-          Dialog content description
+      <DialogContent>
+        {title && <DialogTitle>{title}</DialogTitle>}
+        <DialogDescription>
+          {description || "Please provide a description for this dialog"}
         </DialogDescription>
         {children}
       </DialogContent>
